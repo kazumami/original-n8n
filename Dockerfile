@@ -3,8 +3,9 @@ FROM docker.n8n.io/n8nio/n8n:${N8N_VERSION}
 
 USER root
 
-RUN apk add --no-cache \
+RUN apt-get update && apt-get install -y \
     poppler-utils \
-    font-noto-cjk
+    fonts-noto-cjk \
+    && rm -rf /var/lib/apt/lists/*
 
 USER node

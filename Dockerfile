@@ -7,5 +7,5 @@ RUN ARCH=$(uname -m) && \
     tar -xzf apk-tools-static-*.apk && \
     ./sbin/apk.static add --no-cache poppler-utils font-noto-cjk && \
     rm -rf apk-tools-static-*.apk sbin/apk.static
+RUN mkdir -p /opt/custom-nodes && cd /opt/custom-nodes && npm install @e2b/code-interpreter
 USER node
-RUN cd /usr/local/lib/node_modules/n8n && npm install @e2b/code-interpreter

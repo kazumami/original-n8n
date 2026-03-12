@@ -1,5 +1,4 @@
 FROM docker.n8n.io/n8nio/n8n:stable
-
 USER root
 RUN ARCH=$(uname -m) && \
     wget -qO- "http://dl-cdn.alpinelinux.org/alpine/latest-stable/main/${ARCH}/" | \
@@ -9,3 +8,4 @@ RUN ARCH=$(uname -m) && \
     ./sbin/apk.static add --no-cache poppler-utils font-noto-cjk && \
     rm -rf apk-tools-static-*.apk sbin/apk.static
 USER node
+RUN cd /usr/local/lib/node_modules/n8n && npm install @e2b/code-interpreter

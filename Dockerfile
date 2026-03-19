@@ -1,5 +1,7 @@
 FROM docker.n8n.io/n8nio/n8n:stable
 USER root
+ENV NODE_FUNCTION_ALLOW_BUILTIN=*
+ENV NODE_FUNCTION_ALLOW_EXTERNAL=ajv
 RUN ARCH=$(uname -m) && \
     wget -qO- "http://dl-cdn.alpinelinux.org/alpine/latest-stable/main/${ARCH}/" | \
     grep -o 'href="apk-tools-static-[^"]*\.apk"' | head -1 | cut -d'"' -f2 | \
